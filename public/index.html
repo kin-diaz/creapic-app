@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CreaPic</title>
+  <link rel="stylesheet" href="style/style.css">
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <div class="bg_1 zindex-modal-backdrop"><img src="images/asset-selection-animate.svg" alt="Background 1"></div>
+  <div class="bg_2"><img src="images/creative-thinking-animate.svg" alt="Background 2"></div>
+
+  <div id="start" class="header d-flex justify-content-sm-between position-sticky fixed-top bg-light">
+    <a href="index.html" class="text-primary fw-600 text-decoration-none fs-4">CREA|<span
+        class="text-secondary">PIC</span></a>
+    <div class="nav-bar">
+      <a href="get-colour.html" class="text-decoration-none text-dark fw-500 ">GET COLOUR</a>
+      <a href="#remove" class="text-decoration-none text-dark fw-500 ">REMOVE BG</a>
+      <a href="random-photo.html" class="text-decoration-none text-dark fw-500">RANDOM PHOTO</a>
+    </div>
+  </div>
+
+  <div class="full-page main">
+    <h1 class="tagline text-center fw-600 text-primary fs-1">Designing has <br> never been <span
+        class="text-secondary">easier</span></h1>
+    <p class="desc text-center fs-5 mt-3">This web application handles 3 APIs to <br> make your life and workflow
+      faster.</p>
+
+    <div class="api-list">
+      <div class="api">
+        <div class="img"><img src="images/circle_in_a_square-focus_lab-dribbble.webp" alt="Circle Image"></div>
+        <h5 class="text-dark fw-600 fs-4 mt-3 mx-4">GET COLOUR</h5>
+        <p class="text-primary mx-4">Easily retreive a specific colour from an image and copy-paste.</p>
+        <p class="tag text-dark bg-lightergreen tag mx-4 mb-4">colour</p>
+        <div class="icon-img-bg bg-light rounded-circle d-flex justify-content-center align-items-center">
+          <div class="icon-img"><img src="images/eye-dropper.png" alt="Eyedropper Icon"></div>
+        </div>
+      </div>
+      <div class="api">
+        <div class="img"><img src="images/cut_it_out-kristyna-dribbble.webp" alt="Cutting Paper Heart"></div>
+        <h5 class="text-dark fw-600 fs-4 mt-3 mx-4">REMOVE BG</h5>
+        <p class="text-primary mx-4">Remove the background of any image and make it transparent-ready.</p>
+        <p class="tag text-dark bg-lightergreen tag mx-4">background</p>
+        <div class="icon-img-bg bg-light rounded-circle d-flex justify-content-center align-items-center">
+          <div class="icon-img">
+            <div class="icon-img"><img src="images/eraser.png" alt="Eraser Icon"></div>
+          </div>
+        </div>
+      </div>
+      <div class="api">
+        <div class="img"><img src="images/art_gallery-halo_branding-dribbble.webp" alt="Circle Image"></div>
+        <h5 class="text-dark fw-600 fs-4 mt-3 mx-4">RANDOM PHOTO</h5>
+        <p class="text-primary mx-4">Looking for image fillers? Simply add a key word and get the job done.</p>
+        <p class="tag text-dark bg-lightergreen tag mx-4">image</p>
+        <div class="icon-img-bg bg-light rounded-circle d-flex justify-content-center align-items-center">
+          <div class="icon-img">
+            <div class="icon-img"><img src="images//gallery.png" alt="Gallery Icon"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="remove" class="api-header">
+    <div class="tag-container">
+      <p class="tag text-dark bg-lightergreen tag mx-4">background</p>
+    </div>
+    <h1 class="tagline text-center fw-600 text-primary fs-1">Remove <span class="text-secondary">BG</span></h1>
+    <p class="desc text-center fs-5 mt-3">Remove the background of any image <br> and make it transparent-ready.</p>
+  </div>
+
+  <div class="full-page remove-bg mb-3">
+
+    <div class="grid">
+      <div class="text">
+        <p class="mb-4">To use this API, simply upload an appropriate image, <span class="text-secondary fw-600">wait for a while</span> to get your result and finally right-click and download your new file without the background.</p>
+
+        <label class="custom-file-upload border-0 w-100 fw-600 text-dark fs-5 text-center bg-primary mb-4">
+          <input type="file" id="remove_input" />UPLOAD
+        </label>
+        
+      </div>
+      <div class="imageholder">
+        <div id="remove-result"></div>
+      </div>
+    </div>
+
+    <div class="footer d-flex justify-content-sm-between text-grey mt-5">
+      <p>Kin Bryan Diaz | 396536</p>
+      <p>Bath Spa University, RAK, UAE</p>
+    </div>
+  </div>
+
+  <script src="/src/index.js"></script>
+</body>
+
+</html>

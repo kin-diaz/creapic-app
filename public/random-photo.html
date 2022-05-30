@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreaPic</title>
+    <link rel="stylesheet" href="style/style.css">
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="start" class="header d-flex justify-content-sm-between position-sticky fixed-top bg-light">
+        <a href="index.html" class="text-primary fw-600 text-decoration-none fs-4">CREA|<span
+                class="text-secondary">PIC</span></a>
+        <div class="nav-bar">
+            <a href="get-colour.html" class="text-decoration-none text-dark fw-500 ">GET COLOUR</a>
+            <a href="index.html" class="text-decoration-none text-dark fw-500 ">REMOVE BG</a>
+            <a href="random-photo.html" class="text-decoration-none text-dark fw-500">RANDOM PHOTO</a>
+        </div>
+    </div>
+
+    <div id="random" class="api-header">
+        <div class="tag-container">
+            <p class="tag text-dark bg-lightergreen tag mx-4">image</p>
+        </div>
+        <h1 class="tagline text-center fw-600 text-primary fs-1">Random <span class="text-secondary">Photo</span></h1>
+        <p class="desc text-center fs-5 mt-3">Looking for image fillers? Simply add a <br> key word and get the job done.</p>
+    </div>
+
+    <div class="full-page random-photo mb-3">
+        <div class="grid">
+            <div class="fetchImagesWrapper">
+                <input id="search-box" class="bg-lightpurple m-0 border-0 text-dark" placeholder="Enter key word..."></input>
+                <button class="getImagesButton border-0 w-100 fw-600 text-dark fs-5 bg-secondary custom-file-upload">Get An Image</button>
+            </div>
+            <div class="imageDisplayWrapper">
+                <img class="imageToDisplay" style="height: 35rem; border: 1px solid white;" src="images/image-upload-animate.svg" />
+            </div>
+        </div>
+        <div class="footer d-flex justify-content-sm-between text-grey mt-5">
+            <p>Kin Bryan Diaz | 396536</p>
+            <p>Bath Spa University, RAK, UAE</p>
+        </div>
+    </div>
+
+    <script>
+        var key = document.getElementById("search-box"); // Input
+        const getImagesButton = document.querySelector('.getImagesButton');
+        const imageToDisplay = document.querySelector('.imageToDisplay');
+
+        getImagesButton.addEventListener('click', async () => {
+            var value = key.value;
+
+            // Unsplash Random Photo API JS
+            var requestUrl = 'https://api.unsplash.com/search/photos?query='+ value +'&client_id=w7SqhkfJ7hwetxJjnovaC4P0_Krn9gH5aGUggkwDoig';
+
+            let randomImage = await getNewImage(requestUrl);
+            imageToDisplay.src = randomImage;
+        });
+
+        async function getNewImage(requestUrl) {
+            let randomNumber = Math.floor(Math.random() * 10);
+            return fetch(requestUrl)
+                .then((response) => response.json())
+                .then((data) => {
+                    let allImages = data.results[randomNumber];
+                    return allImages.urls.regular;
+                });
+        }
+    </script>
+</body>
+
+</html>

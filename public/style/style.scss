@@ -1,0 +1,218 @@
+// Variable Overrides
+$primary: #4E878C;
+$secondary: #65B891;
+$success: #33CA7F;
+$danger: #EF6461;
+$warning: #FF8247;
+$info: #62B6CB;
+$light: #FFFFFF;
+$dark: #00241B;
+$grey: #7F7F7F;
+$lightergreen: #93E5AB;
+
+$theme-colors: (
+    "primary": $primary,
+    "secondary": $secondary,
+    "success": $success,
+    "danger": $danger,
+    "warning": $warning,
+    "info": $info,
+    "light": $light,
+    "dark": $dark,
+    "grey": $grey,
+    "lightergreen": $lightergreen
+);
+
+.fw-500 {
+    font-weight: 500 !important;
+}
+  
+.fw-600 {
+    font-weight: 600 !important;
+}
+
+// Import bootstrap and Google Fonts (plus every weight)
+@import "node_modules/bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+// Reset all values
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+button, label {
+    cursor: pointer;
+    padding: 1rem 0;
+
+    &:hover {
+        filter: brightness(105%);
+    }
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    border-radius: 10px;
+}
+
+.bg_1, .bg_2 {
+    width: 33.6rem;
+    height: 33.6rem;
+    position: absolute;
+    top: 5rem;
+}
+
+.bg_1 {
+    left: -6rem;
+}
+
+.bg_2 {
+    right: -6rem;
+}
+
+.tag {
+    padding: 0.375rem 1.125rem;
+    display: inline-block;
+    border-radius: 50px;
+}
+
+.header {
+    padding: 2.5rem 7.5rem 1.5rem;
+
+    a {
+        margin-left: 1.5rem;
+
+        &:hover {
+            cursor: pointer;
+            color: $secondary !important;
+        }
+    }
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-gap: 50px;
+}
+
+.full-page {
+    margin: 5rem 7.5rem;
+}
+
+.main {
+    .tagline {
+        font-size: 3rem;
+    }
+    
+    .api-list {
+        width: 66rem;
+        margin: 5.25rem auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    
+        .api {
+            border-radius: 1rem;
+            box-shadow: 0px 4px 20px 10px rgba(0, 0, 0, 0.05);
+            width: 18rem;
+            position: relative;
+    
+            .img {
+                height: 12rem;
+    
+                img {
+                    border-radius: 1rem 1rem 0 0;
+                }
+            }            
+
+            .icon-img-bg {
+                position: absolute;
+                right: -2.75rem;
+                bottom: -2.75rem;
+                width: 7rem;
+                height: 7rem;
+                box-shadow: 0px 4px 20px 10px #E9FFEF;
+            }
+    
+            .icon-img {
+                width: 3rem;
+                height: 3rem;
+            }
+        }
+    }
+}
+
+.api-header {
+    box-shadow: 0px 4px 20px 10px rgba(0, 0, 0, 0.05);
+    padding: 2rem 0 3rem;
+
+    .tag-container {
+        margin: auto;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.remove-bg {
+    .imageholder {
+        height: 25rem;
+        border-radius: 25px;
+        box-shadow: 0px 4px 20px 10px rgba(0, 0, 0, 0.05);
+    }
+}
+
+.get-colour {
+    .select {
+        border-radius: 10px 10px 0 0;
+    }
+    
+    #result {
+        border: 2px solid $secondary;
+        border-radius: 0 0 10px 10px;
+        box-sizing: border-box;
+        padding: 25px;
+        font-size: 25px;
+        text-transform: uppercase;
+    }
+    
+    .image {
+        box-shadow: 0px 4px 20px 10px rgba(0, 0, 0, 0.05);
+        height: 35rem;
+        border-radius: 25px;
+        object-fit: contain;
+    }
+}
+
+.random-photo {
+    .imageDisplayWrapper {
+        box-shadow: 0px 4px 20px 10px rgba(0, 0, 0, 0.05);
+        border: none;
+        border-radius: 25px;
+
+        .imageToDisplay {
+            border: none;
+            border-radius: 25px;
+            object-fit: cover;
+        }
+    }
+}

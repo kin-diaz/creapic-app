@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreaPic</title>
+    <link rel="stylesheet" href="style/style.css">
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="start" class="header d-flex justify-content-sm-between position-sticky fixed-top bg-light">
+        <a href="index.html" class="text-primary fw-600 text-decoration-none fs-4">CREA|<span
+                class="text-secondary">PIC</span></a>
+        <div class="nav-bar">
+            <a href="get-colour.html" class="text-decoration-none text-dark fw-500 ">GET COLOUR</a>
+            <a href="index.html" class="text-decoration-none text-dark fw-500 ">REMOVE BG</a>
+            <a href="random-photo.html" class="text-decoration-none text-dark fw-500">RANDOM PHOTO</a>
+        </div>
+    </div>
+
+    <div id="colour" class="api-header">
+        <div class="tag-container">
+            <p class="tag text-dark bg-lightergreen tag mx-4">colour</p>
+        </div>
+        <h1 class="tagline text-center fw-600 text-primary fs-1">Get <span class="text-secondary">colour</span></h1>
+        <p class="desc text-center fs-5 mt-3">Easily retrieve a specific colour from an <br> image and copy-paste.</p>
+    </div>
+    <div class="full-page get-colour mb-3">
+        <div class="grid">
+            <div class="text">
+                <div class="upload">
+                    <label class="custom-file-upload border-0 w-100 fw-600 text-dark fs-5 text-center bg-primary mb-4">
+                        <input type="file" onchange="readURL(this);" />UPLOAD
+                    </label>
+                </div>
+
+                <button id="select-button"
+                    class="select border-0 w-100 fw-600 text-dark fs-5 bg-secondary">SELECT</button>
+                <div id="result" class="text-dark w-100 text-center">#FFFFFF</div>
+            </div>
+            <div class="imageholder">
+                <img id="img" class="image" src="images/image-upload-animate.svg" alt="Image" />
+            </div>
+        </div>
+
+        <div class="footer d-flex justify-content-sm-between text-grey mt-5">
+            <p>Kin Bryan Diaz | 396536</p>
+            <p>Bath Spa University, RAK, UAE</p>
+        </div>
+    </div>
+
+    <script>
+        // Eyedropper API JS
+        document.getElementById("select-button").addEventListener("click", () => {
+            const resultElement = document.getElementById("result");
+
+            if (!window.EyeDropper) {
+                resultElement.textContent =
+                    "Your browser does not support the EyeDropper API";
+                return;
+            }
+
+            const eyeDropper = new EyeDropper();
+
+            eyeDropper
+                .open()
+                .then((result) => {
+                    resultElement.textContent = result.sRGBHex;
+                    resultElement.style.color = result.sRGBHex;
+                })
+                .catch((e) => {
+                    resultElement.textContent = e;
+                });
+        });
+
+        // AJAX file reader to output the image
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#img').attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+</body>
+
+</html>
